@@ -298,9 +298,9 @@ class st7789(backlit_device):
 
     .. versionadded:: 2.9.0
     """
-    def __init__(self, serial_interface=None, rotate=0, **kwargs):
+    def __init__(self, serial_interface=None, width=240, height=240, rotate=0, **kwargs):
         super(st7789, self).__init__(luma.lcd.const.st7789, serial_interface, **kwargs)
-        self.capabilities(240, 240, rotate, mode="RGB")
+        self.capabilities(width, height, rotate, mode="RGB")
 
         self.command(0x36, 0x70)     # MADCTL (36h): Memory Data Access Control: Bottom to Top, Right to Left, Reverse Mode
         self.command(0x3A, 0x06)     # COLMOD (3Ah): Interface Pixel Format: 18bit/pixel
